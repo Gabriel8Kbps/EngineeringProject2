@@ -24,8 +24,10 @@ int main()
 
     printf("======Teste da Operacao Transposta======\n\n");
         teste_transposta();
+
     printf("======Teste da Conjugada========\n\n");
         teste_conjugada();
+
 //    printf("======Teste do Produto Matricial========\n\n");
 //        teste_produto_matricial();
 //

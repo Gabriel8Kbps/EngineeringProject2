@@ -233,6 +233,7 @@ int transposta(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam])
                 result[i][j].img = a[j][i].img;
             }
         }
+    return 0;
 }
 int teste_transposta()
 {
@@ -290,8 +291,10 @@ int conjugada(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam])
        for(j = 0; j < tam; j++)
        {
            result[i][j].img = a[i][j].img * (-1);
+           result[i][j].real = a[i][j].real;
        }
    }
+   return 0;
 }
 int teste_conjugada()
 {
