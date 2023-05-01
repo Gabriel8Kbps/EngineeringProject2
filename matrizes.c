@@ -21,6 +21,10 @@ int teste_subtracao();
 int transposta(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam]);
 int teste_transposta();
 
+int conjugada(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam]);
+int teste_conjugada();
+
+
 int soma(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam], struct ComplexNumber result[][tam])
 {
     int i,j;
@@ -232,7 +236,7 @@ int transposta(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam])
 }
 int teste_transposta()
 {
-    int i,j;
+  int i,j;
     printf("Operando A:\n\n");
     for(i = 0; i < tam; i++)
         {
@@ -253,6 +257,88 @@ int teste_transposta()
             }
             printf("\n");
         }
+        printf("\n");
+
+printf("Operando B:\n\n");
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+            {
+                printf("\t(%.2f) + (%.2fi)",b[i][j].real,b[i][j].img);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    printf("Transposta de B:\n\n");
+    transposta(b,result);
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+            {
+                printf("\t(%.2f) + (%.2fi)",result[i][j].real);
+            }
+            printf("\n");
+        }
+    printf("\n");
+}
+
+int conjugada(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam])
+{
+   int i,j;
+   for(i = 0; i < tam; i++)
+   {
+       for(j = 0; j < tam; j++)
+       {
+           result[i][j].img = a[i][j].img * (-1);
+       }
+   }
+}
+int teste_conjugada()
+{
+    int i,j;
+    printf("Operando A:\n\n");
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+            {
+                printf("\t%.2fi",b[i][j].img);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    printf("Conjugada de A:\n\n");
+    conjugada(b,result);
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+            {
+                printf("\t%.2fi",result[i][j].img);
+            }
+            printf("\n");
+        }
+        printf("\n");
+
+printf("Operando B:\n\n");
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+            {
+                printf("\t(%.2f) + (%.2fi)",b[i][j].real,b[i][j].img);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    printf("Conjugada de B:\n\n");
+    conjugada(b,result);
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+            {
+                printf("\t(%.2f) + (%.2fi)",result[i][j].real,result[i][j].img);
+            }
+            printf("\n");
+        }
+
 }
 
 //teste_produto_matricial()

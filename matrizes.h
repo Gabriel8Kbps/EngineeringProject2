@@ -8,4 +8,5 @@ typedef struct ComplexNumber
     double img;
 
 };
+
 #endif
