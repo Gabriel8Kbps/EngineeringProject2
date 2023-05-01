@@ -21,9 +21,9 @@ int main()
 
     printf("======Teste da Operacao de Subtracao========\n\n");
         teste_subtracao();
-//
-//    printf("======Teste da Operacão Transposta======\n\n");
-//        teste_transposta();
+
+    printf("======Teste da Operacao Transposta======\n\n");
+        teste_transposta();
 
 //    printf("======Teste do Produto Matricial========\n\n");
 //        teste_produto_matricial();

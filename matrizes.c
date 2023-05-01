@@ -18,6 +18,9 @@ int teste_soma();
 int subtracao(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam], struct ComplexNumber result[][tam]);
 int teste_subtracao();
 
+int transposta(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam]);
+int teste_transposta();
+
 int soma(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam], struct ComplexNumber result[][tam])
 {
     int i,j;
@@ -214,8 +217,44 @@ int teste_subtracao()
 
 }
 
+int transposta(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam])
+{
+    struct ComplexNumber alocador[tam][tam];
+    int i,j;
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+            {
+                result[i][j].real = a[j][i].real;
+                result[i][j].img = a[j][i].img;
+            }
+        }
+}
+int teste_transposta()
+{
+    int i,j;
+    printf("Operando A:\n\n");
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+            {
+                printf("\t%.2f",a[i][j].real);
+            }
+            printf("\n");
+        }
+        printf("\n");
+    printf("Transposta de A:\n\n");
+    transposta(a,result);
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+            {
+                printf("\t%.2f",result[i][j].real);
+            }
+            printf("\n");
+        }
+}
 
-//teste_transposta();
 //teste_produto_matricial()
 //teste_conjugada();
 //teste_hermitiana();
