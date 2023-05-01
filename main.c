@@ -16,29 +16,29 @@ int main()
 
     printf(" %s\n %s\n %s\n %s\n\n", name1,name2, name3, name4);
 
-    printf("======Teste da Soma========\n\n");
+    printf("======Teste da Operacao de Soma========\n\n");
         teste_soma();
 
-    printf("======Teste da Subtração========\n\n");
-        teste_subtracao();
+//    printf("======Teste da Operaca de Subtração========\n\n");
+//        teste_subtracao();
+//
+//    printf("======Teste da Operacão Transposta======\n\n");
+//        teste_transposta();
 
-    printf("======Teste da Operacão Transposta======\n\n");
-        teste_transposta();
+//    printf("======Teste do Produto Matricial========\n\n");
+//        teste_produto_matricial();
+//
+//    printf("======Teste da Conjugada========\n\n");
+//        teste_conjugada();
 
-    printf("======Teste do Produto Matricial========\n\n");
-        teste_produto_matricial();
+//    printf("======Teste da Hermitiana========\n\n");
+//        teste_hermitiana();
 
-    printf("======Teste da Conjugada========\n\n");
-        teste_conjugada();
+//    printf("======Teste do Produto Escalar========\n\n");
+//        teste_produto_escalar();
 
-    printf("======Teste da Hermitiana========\n\n");
-        teste_hermitiana();
-
-    printf("======Teste do Produto Escalar========\n\n");
-        teste_produto_escalar();
-
-    printf("======Teste Geral========\n\n");
-        teste_todos();
+//    printf("======Teste Geral========\n\n");
+//        teste_todos();
 
 
     return 0;
