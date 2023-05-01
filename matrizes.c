@@ -10,7 +10,7 @@ struct ComplexNumber c[tam][tam] = { {{1,-2},{-3,-3},{1,8}   }  ,   {    {7,3},{
 struct ComplexNumber d[tam][tam] = { {{6,-4},{-8,1},{3,1.3}  } ,   { {7,2},{1,9},{2,6}   }   ,   {   {6,6},{3,11},{-23,-1}   }  };
 struct ComplexNumber result[tam][tam];
 
-// FUNCÕES
+// FUNCÃ•ES
 
 int soma(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam], struct ComplexNumber result[][tam]);
 int teste_soma();
@@ -23,6 +23,10 @@ int teste_transposta();
 
 int conjugada(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam]);
 int teste_conjugada();
+
+int hermitiana(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam], struct ComplexNumber result[][tam]);
+int teste_hermitiana();
+
 
 
 int soma(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam], struct ComplexNumber result[][tam])
@@ -223,6 +227,7 @@ int teste_subtracao()
 
 int transposta(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam])
 {
+
     struct ComplexNumber alocador[tam][tam];
     int i,j;
     for(i = 0; i < tam; i++)
@@ -285,6 +290,7 @@ printf("Operando B:\n\n");
 
 int conjugada(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam])
 {
+
    int i,j;
    for(i = 0; i < tam; i++)
    {
@@ -298,6 +304,7 @@ int conjugada(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam])
 }
 int teste_conjugada()
 {
+
     int i,j;
     printf("Operando A:\n\n");
     for(i = 0; i < tam; i++)
@@ -341,8 +348,76 @@ printf("Operando B:\n\n");
             }
             printf("\n");
         }
+        printf("\n");
 
 }
+int hermitiana(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam],struct ComplexNumber result[][tam])
+{
+   int i,j;
+   for(i = 0; i < tam; i++)
+   {
+       for(j = 0; j < tam; j++)
+        {
+            b[i][j].real = a[j][i].real;
+            result[i][j].real = b[i][j].real;
+
+            b[i][j].img = a[j][i].img;
+            result[i][j].img = b[i][j].img * (-1);
+        }
+   }
+   return 0;
+}
+int teste_hermitiana()
+{
+    int i,j;
+    printf("Operando A:\n\n");
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+        {
+            printf("\t%.2fi",a[i][j].img);
+        }
+        printf("\n");
+    }
+    printf("\n");
+    printf("Hermitiana de A:\n\n");
+    hermitiana(a,b,result);
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+            {
+                printf("\t%.2fi",result[i][j].img);
+            }
+            printf("\n");
+        }
+    printf("\n");
+    printf("Operando B:\n\n");
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam ; j++)
+                {
+                    printf("\t(%.2f) + (%.2fi)",a[i][j].real,a[i][j].img);
+                }
+            printf("\n");
+        }
+    printf("\n");
+    printf("Hermitiana de B:\n\n");
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+                {
+                    printf("\t(%.2f) + (%.2fi)",result[i][j].real,result[i][j].img);
+                }
+                printf("\n");
+        }
+    printf("\n");
+
+
+
+}
+//{}
+
+
 
 //teste_produto_matricial()
 //teste_conjugada();
