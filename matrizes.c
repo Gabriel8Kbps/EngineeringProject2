@@ -4,10 +4,10 @@
 #define tam 3
 
 // MATRIZ TESTE
-struct ComplexNumber a[tam][tam] = { {{3,2},{7,-2},{7.4,2}   }  ,   {   {1,-6},{-5,3.2},{1,1}    }   ,   {   {2,4},{1.3,4},{-2,-5.3} }   };
-struct ComplexNumber b[tam][tam] = { {{7,-5},{3,-1},{1.3,-6} }    ,   {   {4.3,2},{-1,1},{2,9}   }   ,   {   {3,8},{2,4},{8,8}   }  };
+struct ComplexNumber a[tam][tam] = { {{5,2},{7,-3},{9,1}   }  ,   {   {1,-6},{-5,3},{4,7}    }   ,   {   {2,5},{1,4},{-9,-3} }   };
+struct ComplexNumber b[tam][tam] = { {{7,-5},{3,-1},{1,-6} }    ,   {   {4,2},{-1,1},{2,9}   }   ,   {   {3,8},{2,4},{8,8}   }  };
 struct ComplexNumber c[tam][tam] = { {{1,-2},{-3,-3},{1,8}   }  ,   {    {7,3},{0,2},{7,1}   }   ,   {   {2,3},{9,2},{-1,-5} }    };
-struct ComplexNumber d[tam][tam] = { {{6,-4},{-8,1},{3,1.3}  } ,   { {7,2},{1,9},{2,6}   }   ,   {   {6,6},{3,11},{-23,-1}   }  };
+struct ComplexNumber d[tam][tam] = { {{6,-4},{-8,1},{3,1}  } ,   { {7,2},{1,9},{2,6}   }   ,   {   {6,6},{3,11},{-23,-1}   }  };
 struct ComplexNumber result[tam][tam];
 
 // FUNCÕES
@@ -26,6 +26,9 @@ int teste_conjugada();
 
 int hermitiana(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam], struct ComplexNumber result[][tam]);
 int teste_hermitiana();
+
+int produto_escalar(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam], struct ComplexNumber result[][tam]);
+int teste_produto_escalar();
 
 
 
@@ -281,7 +284,7 @@ printf("Operando B:\n\n");
         {
             for(j = 0; j < tam; j++)
             {
-                printf("\t(%.2f) + (%.2fi)",result[i][j].real);
+                printf("\t(%.2f) + (%.2fi)",result[i][j].real,result[i][j].img);
             }
             printf("\n");
         }
@@ -290,6 +293,7 @@ printf("Operando B:\n\n");
 
 int conjugada(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam])
 {
+
 
    int i,j;
    for(i = 0; i < tam; i++)
@@ -304,6 +308,7 @@ int conjugada(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam])
 }
 int teste_conjugada()
 {
+
 
     int i,j;
     printf("Operando A:\n\n");
@@ -353,15 +358,17 @@ printf("Operando B:\n\n");
 }
 int hermitiana(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam],struct ComplexNumber result[][tam])
 {
+
    int i,j;
+   struct ComplexNumber alocador[tam][tam];
    for(i = 0; i < tam; i++)
    {
        for(j = 0; j < tam; j++)
         {
-            b[i][j].real = a[j][i].real;
+            alocador[i][j].real = a[j][i].real;
             result[i][j].real = b[i][j].real;
 
-            b[i][j].img = a[j][i].img;
+            alocador[i][j].img = a[j][i].img;
             result[i][j].img = b[i][j].img * (-1);
         }
    }
@@ -369,6 +376,7 @@ int hermitiana(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam],stru
 }
 int teste_hermitiana()
 {
+
     int i,j;
     printf("Operando A:\n\n");
     for(i = 0; i < tam; i++)
@@ -411,16 +419,69 @@ int teste_hermitiana()
                 printf("\n");
         }
     printf("\n");
-
+    return 0;
 
 
 }
-//{}
-
+int produto_escalar(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam], struct ComplexNumber result[][tam])
+{
+        int i,j;
+        for(i = 0; i < tam; i++)
+        {
+            for(j = 0; j < tam; j++)
+                {
+                    result[i][j].real = ((a[i][j].real) * (b[i][j].real)) + ((a[i][j].img) * (b[i][j].img));
+                }
+        }
+        return 0;
+}
+int teste_produto_escalar()
+{
+    int i,j;
+    printf("Operando A:\n\n");
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+            {
+                printf("\t%.2f",a[i][j].real);
+            }
+        printf("\n");
+    }
+    printf("\n");
+    printf("Operando B:\n\n");
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+            {
+                printf("\t%.2f",b[i][j].real);
+            }
+        printf("\n");
+    }
+    printf("\n");
+    produto_escalar(a,b,result);
+    printf("Produto Escalar de A * B:\n\n");
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+            {
+                printf("\t%.2f",result[i][j].img);
+            }
+        printf("\n");
+    }
+     printf("\n");
+    printf("Produto Escalar de A * B:\n\n");
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+            {
+                printf("\t(%.2f) + (%.2fi)",result[i][j].real,result[i][j].img);
+            }
+        printf("\n");
+    }
+    printf("\n");
+}
 
 
 //teste_produto_matricial()
-//teste_conjugada();
-//teste_hermitiana();
 //teste_produto_escalar();
 //teste_todos();
