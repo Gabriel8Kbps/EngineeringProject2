@@ -19,8 +19,8 @@ int main()
     printf("======Teste da Operacao de Soma========\n\n");
         teste_soma();
 
-//    printf("======Teste da Operaca de Subtração========\n\n");
-//        teste_subtracao();
+    printf("======Teste da Operacao de Subtracao========\n\n");
+        teste_subtracao();
 //
 //    printf("======Teste da Operacão Transposta======\n\n");
 //        teste_transposta();

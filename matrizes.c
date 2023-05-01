@@ -36,8 +36,6 @@ int teste_soma()
 {
     int i,j;
 
-
-
     printf("Operando A:\n\n");
 
      for(i = 0;i < tam; i++)
@@ -136,6 +134,81 @@ int subtracao(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam], stru
 
 int teste_subtracao()
 {
+    int i,j;
+
+    printf("Operando A:\n\n");
+
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+            {
+                printf("\t%.2f",a[i][j].real);
+            }
+        printf("\n");
+    }
+    printf("\n");
+
+    printf("Operando B:\n\n");
+
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+            {
+                printf("\t%.2f",b[i][j].real);
+            }
+        printf("\n");
+    }
+    printf("\n");
+
+    subtracao(a,b,result);
+    printf("Resultado A - B:\n\n");
+
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+            {
+                printf("\t%.2f",result[i][j].real);
+            }
+        printf("\n");
+    }
+    printf("\n");
+
+    printf("Operando C:\n\n");
+
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+            {
+                printf("\t(%.2f) + (%.2f)i",c[i][j].real,c[i][j].img);
+            }
+        printf("\n");
+    }
+    printf("\n");
+
+    printf("Operando D:\n\n");
+
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+            {
+                printf("\t(%.2f) + (%.2f)i",d[i][j].real,d[i][j].img);
+            }
+        printf("\n");
+    }
+    printf("\n");
+
+    subtracao(c,d,result);
+    printf("Resultado C - D:\n\n");
+
+    for(i = 0; i < tam; i++)
+        {
+            for(j = 0 ; j < tam; j++)
+            {
+                    printf("\t[(%.2f) + (%.2fi)]",result[i][j].real, result[i][j].img);
+            }
+            printf("\n");
+        }
+        printf("\n");
 
 
 
