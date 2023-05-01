@@ -28,6 +28,9 @@ int main()
     printf("======Teste da Conjugada========\n\n");
         teste_conjugada();
 
+    printf("======Teste da Hermitiana========\n\n");
+        teste_hermitiana();
+
 //    printf("======Teste do Produto Matricial========\n\n");
 //        teste_produto_matricial();
 //
