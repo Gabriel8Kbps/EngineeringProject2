@@ -231,7 +231,6 @@ int teste_subtracao()
 int transposta(struct ComplexNumber a[][tam],struct ComplexNumber result[][tam])
 {
 
-    struct ComplexNumber alocador[tam][tam];
     int i,j;
     for(i = 0; i < tam; i++)
         {
@@ -430,14 +429,20 @@ int produto_escalar(struct ComplexNumber a[][tam], struct ComplexNumber b[][tam]
         {
             for(j = 0; j < tam; j++)
                 {
-                    result[i][j].real = ((a[i][j].real) * (b[i][j].real)) + ((a[i][j].img) * (b[i][j].img));
+                    result[i][j].real = ((a[i][j].real) * (b[i][j].real));
+                    result[i][j].img = ((a[i][j].img) * (b[i][j].img));
+
                 }
         }
+
+
+
         return 0;
 }
 int teste_produto_escalar()
 {
     int i,j;
+
     printf("Operando A:\n\n");
     for(i = 0; i < tam; i++)
     {
@@ -459,22 +464,43 @@ int teste_produto_escalar()
     }
     printf("\n");
     produto_escalar(a,b,result);
-    printf("Produto Escalar de A * B:\n\n");
+    printf("Produto dos elementos de A e B:\n\n");
     for(i = 0; i < tam; i++)
     {
         for(j = 0; j < tam; j++)
             {
-                printf("\t%.2f",result[i][j].img);
+                printf("\t%.2f",result[i][j].real);
             }
         printf("\n");
     }
      printf("\n");
-    printf("Produto Escalar de A * B:\n\n");
+    printf("Operando C:\n\n");
     for(i = 0; i < tam; i++)
     {
         for(j = 0; j < tam; j++)
             {
-                printf("\t(%.2f) + (%.2fi)",result[i][j].real,result[i][j].img);
+                printf("\t(%.2f) + (%.2fi)",c[i][j].real,c[i][j].img);
+            }
+        printf("\n");
+    }
+    printf("\n");
+    printf("Operando D:\n\n");
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+            {
+                printf("\t(%.2f) + (%.2fi)",d[i][j].real,d[i][j].img);
+            }
+        printf("\n");
+    }
+    printf("\n");
+    produto_escalar(c,d,result);
+    printf("Produto Escalar de C * D:\n\n");
+    for(i = 0; i < tam; i++)
+    {
+        for(j = 0; j < tam; j++)
+            {
+                printf("\t(%.2f)",result[i][j].real + result[i][j].img);
             }
         printf("\n");
     }
@@ -483,5 +509,5 @@ int teste_produto_escalar()
 
 
 //teste_produto_matricial()
-//teste_produto_escalar();
 //teste_todos();
+
