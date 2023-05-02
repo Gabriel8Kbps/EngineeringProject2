@@ -3,7 +3,7 @@
 #include "matrizes.h"
 #define tam 3
 
-// MATRIZ TESTE
+// MATRIZ TESTE, CADA ELEMENTO DA MATRIZ É UM VETOR
 struct ComplexNumber a[tam][tam] = { {{5,2},{7,-3},{9,1}   }  ,   {   {1,-6},{-5,3},{4,7}    }   ,   {   {2,5},{1,4},{-9,-3} }   };
 struct ComplexNumber b[tam][tam] = { {{7,-5},{3,-1},{1,-6} }    ,   {   {4,2},{-1,1},{2,9}   }   ,   {   {3,8},{2,4},{8,8}   }  };
 struct ComplexNumber c[tam][tam] = { {{1,-2},{-3,-3},{1,8}   }  ,   {    {7,3},{0,2},{7,1}   }   ,   {   {2,3},{9,2},{-1,-5} }    };
