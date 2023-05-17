@@ -481,7 +481,7 @@ struct Complex rmtx, aux;
 }
 
 int teste_produto_escalar(){
-    int linhas = 1;
+    int linhas = 3;
     struct Complex *vet1;
     struct Complex *vet2;
     struct Complex result;
@@ -513,14 +513,15 @@ int teste_produto_escalar(){
 
     printf("\n\n");
 
-    // fazer a matriz conjugada usando a função auxiliar
+    // fazer o produto escalar usando a função auxiliar
     result = produto_escalar(vet1, vet2, linhas,linhas);
 
-    // imprimir o conjugada da matriz
+    // imprimir o produto escalar
     printf("Produto Escalar A . B:\n\n");
 
 
-            printf("%.2fi\t", result.real + result.img);
+
+            printf("%.2f + %.2fi\t", result.real , result.img);
 
         printf("\n\n");
 
