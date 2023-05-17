@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "matrizes.h"
 
-// FUNCÃ•ES
+// FUNCÕES
 int print_name();
 
 struct Complex somanc(struct Complex a,struct Complex b);
@@ -46,7 +46,7 @@ struct Complex **soma(struct Complex **matrix1,struct Complex **matrix2, int lin
 {
     struct Complex **rmtx;
 
-    // aloca memÃ³ria para a matriz de saÃ­da
+    // aloca memória para a matriz de saída
     rmtx = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     for(int i=0; i<linhas; i++){
         rmtx[i] = (struct Complex *)malloc(colunas * sizeof(struct Complex));
@@ -73,7 +73,7 @@ int teste_soma()
 
      printf("======Teste da Operacao de Soma========\n\n");
 
-    // alocar memÃ³ria para as matrizes
+    // alocar memória para as matrizes
     matrix1 = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     matrix2 = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     for(int i=0; i<linhas; i++){
@@ -108,7 +108,7 @@ int teste_soma()
         printf("\n\n");
     }
 
-    // somar as matrizes usando a funÃ§Ã£o auxiliar
+    // somar as matrizes usando a função auxiliar
     rmtx = soma(matrix1, matrix2, linhas, colunas);
 
     // imprimir a soma das matrizes
@@ -120,7 +120,7 @@ int teste_soma()
         printf("\n\n");
     }
 
-    // desalocar a memÃ³ria alocada
+    // desalocar a memória alocada
     for(int i=0; i<linhas; i++){
         free(matrix1[i]);
         free(matrix2[i]);
@@ -137,7 +137,7 @@ struct Complex **subtracao(struct Complex **matrix1,struct Complex **matrix2, in
 {
     struct Complex **rmtx;
 
-    // aloca memÃ³ria para a matriz de saÃ­da
+    // aloca memória para a matriz de saída
     rmtx = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     for(int i=0; i<linhas; i++){
         rmtx[i] = (struct Complex *)malloc(colunas * sizeof(struct Complex));
@@ -164,7 +164,7 @@ int teste_subtracao()
 
      printf("======Teste da Operacao de Subtracao========\n\n");
 
-    // alocar memÃ³ria para as matrizes
+    // alocar memória para as matrizes
     matrix1 = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     matrix2 = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     for(int i=0; i<linhas; i++){
@@ -199,7 +199,7 @@ int teste_subtracao()
         printf("\n\n");
     }
 
-    // somar as matrizes usando a funÃ§Ã£o auxiliar
+    // somar as matrizes usando a função auxiliar
     rmtx = subtracao(matrix1, matrix2, linhas, colunas);
 
     // imprimir a soma das matrizes
@@ -211,7 +211,7 @@ int teste_subtracao()
         printf("\n\n");
     }
 
-    // desalocar a memÃ³ria alocada
+    // desalocar a memória alocada
     for(int i=0; i<linhas; i++){
         free(matrix1[i]);
         free(matrix2[i]);
@@ -230,7 +230,7 @@ struct Complex **transposta(struct Complex **matrix1, int linhas, int colunas)
    struct Complex **rmtx;
    int i,j;
 
-    // aloca memÃ³ria para a matriz de saÃ­da
+    // aloca memória para a matriz de saída
     rmtx = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     for(int i=0; i<linhas; i++){
         rmtx[i] = (struct Complex *)malloc(colunas * sizeof(struct Complex));
@@ -256,7 +256,7 @@ int teste_transposta()
 
      printf("======Teste da Operacao transposta========\n\n");
 
-    // alocar memÃ³ria para a matrizes
+    // alocar memória para a matrizes
     matrix1 = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     for(int i=0; i<linhas; i++){
         matrix1[i] = (struct Complex *)malloc(colunas * sizeof(struct Complex));
@@ -279,7 +279,7 @@ int teste_transposta()
         printf("\n\n");
     }
 
-    // fazer a matriz transposta usando a funÃ§Ã£o auxiliar
+    // fazer a matriz transposta usando a função auxiliar
     rmtx = transposta(matrix1, linhas, colunas);
 
     // imprimir a matriz transposta
@@ -291,7 +291,7 @@ int teste_transposta()
         printf("\n\n");
     }
 
-    // desalocar a memÃ³ria alocada
+    // desalocar a memória alocada
     for(int i=0; i<linhas; i++){
         free(matrix1[i]);
         free(rmtx[i]);
@@ -307,7 +307,7 @@ struct Complex **conjugado(struct Complex **matrix1, int linhas, int colunas)
    struct Complex **rmtx;
    int i,j;
 
-    // aloca memÃ³ria para a matriz de saÃ­da
+    // aloca memória para a matriz de saída
     rmtx = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     for(int i=0; i<linhas; i++){
         rmtx[i] = (struct Complex *)malloc(colunas * sizeof(struct Complex));
@@ -333,7 +333,7 @@ int teste_conjugada()
 
      printf("======Teste da Operacao conjugada========\n\n");
 
-    // alocar memÃ³ria para a matrizes
+    // alocar memória para a matrizes
     matrix1 = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     for(int i=0; i<linhas; i++){
         matrix1[i] = (struct Complex *)malloc(colunas * sizeof(struct Complex));
@@ -356,7 +356,7 @@ int teste_conjugada()
         printf("\n\n");
     }
 
-    // fazer a matriz conjugada usando a funÃ§Ã£o auxiliar
+    // fazer a matriz conjugada usando a função auxiliar
     rmtx = conjugado(matrix1, linhas, colunas);
 
     // imprimir o conjugada da matriz
@@ -368,7 +368,7 @@ int teste_conjugada()
         printf("\n\n");
     }
 
-    // desalocar a memÃ³ria alocada
+    // desalocar a memória alocada
     for(int i=0; i<linhas; i++){
         free(matrix1[i]);
         free(rmtx[i]);
@@ -384,7 +384,7 @@ struct Complex **hermitiano(struct Complex **matrix1, int linhas, int colunas)
    struct Complex **rmtx, **aux;
    int i,j;
 
-    // aloca memÃ³ria para a matriz de saÃ­da
+    // aloca memória para a matriz de saída
     rmtx = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     aux = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
 
@@ -413,7 +413,7 @@ int teste_hermitiano()
 
      printf("======Teste da Operacao hermitiano========\n\n");
 
-    // alocar memÃ³ria para a matrizes
+    // alocar memória para a matrizes
     matrix1 = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     for(int i=0; i<linhas; i++){
         matrix1[i] = (struct Complex *)malloc(colunas * sizeof(struct Complex));
@@ -436,7 +436,7 @@ int teste_hermitiano()
         printf("\n\n");
     }
 
-    // fazer a matriz hermitiana usando a funÃ§Ã£o auxiliar
+    // fazer a matriz hermitiana usando a função auxiliar
     rmtx = hermitiano(matrix1, linhas, colunas);
 
     // imprimir o hermitiano da matriz
@@ -448,7 +448,7 @@ int teste_hermitiano()
         printf("\n\n");
     }
 
-    // desalocar a memÃ³ria alocada
+    // desalocar a memória alocada
     for(int i=0; i<linhas; i++){
         free(matrix1[i]);
         free(rmtx[i]);
@@ -488,7 +488,7 @@ int teste_produto_escalar(){
 
      printf("======Teste da Operacao de Produto Escalar========\n\n");
 
-    // alocar memÃ³ria para a matrizes
+    // alocar memória para a matrizes
     vet1 = (struct Complex *)malloc(linhas * sizeof(struct Complex ));
     vet2 = (struct Complex *)malloc(linhas * sizeof(struct Complex ));
 
@@ -513,7 +513,7 @@ int teste_produto_escalar(){
 
     printf("\n\n");
 
-    // fazer a matriz conjugada usando a funÃ§Ã£o auxiliar
+    // fazer a matriz conjugada usando a função auxiliar
     result = produto_escalar(vet1, vet2, linhas,linhas);
 
     // imprimir o conjugada da matriz
@@ -524,7 +524,7 @@ int teste_produto_escalar(){
 
         printf("\n\n");
 
-    // desalocar a memÃ³ria alocada
+    // desalocar a memória alocada
 
     free(vet1);
     free(vet2);
@@ -559,7 +559,7 @@ struct Complex **produto_matricial(struct Complex **matrix1,struct Complex **mat
 {
     struct Complex **rmtx, aux, sum;
 
-    // aloca memÃ³ria para a matriz de saÃ­da
+    // aloca memória para a matriz de saída
     rmtx = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
 
     for(int i=0; i<linhas; i++){
@@ -592,7 +592,7 @@ int teste_produto_matricial()
 
      printf("======Teste da Operacao de produto matricial========\n\n");
 
-    // alocar memÃ³ria para as matrizes
+    // alocar memória para as matrizes
     matrix1 = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     matrix2 = (struct Complex **)malloc(linhas * sizeof(struct Complex *));
     for(int i=0; i<linhas; i++){
@@ -627,7 +627,7 @@ int teste_produto_matricial()
         printf("\n\n");
     }
 
-    // formar o produto das matrizes usando a funÃ§Ã£o auxiliar
+    // formar o produto das matrizes usando a função auxiliar
     rmtx = produto_matricial(matrix1, matrix2, linhas, colunas);
 
     // imprimir o produto matricial
@@ -639,7 +639,7 @@ int teste_produto_matricial()
         printf("\n\n");
     }
 
-    // desalocar a memÃ³ria alocada
+    // desalocar a memória alocada
     for(int i=0; i<linhas; i++){
         free(matrix1[i]);
         free(matrix2[i]);
@@ -656,7 +656,7 @@ teste_todos()
 {
     printf("======Teste Geral========\n\n");
 
-    //FUNÃ‡Ã•ES
+    //FUNcoES
     print_name();
     teste_soma();
     teste_subtracao();
