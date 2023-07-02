@@ -1,65 +1,28 @@
-# Pasta source
-src = ./src
+all:	doc matrizes aplicacao teste
+matrizes:
+	mkdir -m 777 build
+	gcc src/main.c -lgsl -o build/matrizes.o
+aplicacao:
+	mkdir -m 777 -p build
+	gcc -c src/main.c -o build/main.o
+	gcc build/main.o -lgsl -lgslcblas -lm -o build/matrizes.out
+	gcc -c src/matrizes/mimo.c -o build/mimo.o
+	gcc build/mimo.o -lm -o build/mimo.out
 
-# Pasta onde estão os códigos-fonte das matrizes
-matrizes = ./src/matrizes
-
-# Pasta de arquivos de saída do doc
-obj = ./build
-
-# Regra aplicacao
-acao = aplicacao
-
-# Pasta html
-html = ./doc/html
-
-# Bandeiras para o compilador
-flags = -W         \
-        -Wall      \
-        -pedantic
-
-
-all: $(obj) $(acao) doc
-
-
-$(acao): $(obj)/main.o $(obj)/matrizes.o
-	gcc $^ -I $(obj) -o $(obj)/$@.exe $(flags)
-	@echo -e "\n Arquivo $@ gerado"
-
-
-$(obj)/main.o: $(src)/main.c
-	gcc -c $< -J $(obj) -o $@ $(flags)
-	@echo -e "\n Arquivo $@ gerado"
-
-
-$(obj)/matrizes.o: $(matrizes)/matrizes.c
-	gcc -c $< -J $(obj) -o $@ $(flags)
-	@echo -e "\n Arquivo $@ gerado"
-
-$(obj):
-	mkdir $(obj)
-
-
-teste: $(obj)/$(acao).exe
-	$(obj)/$(acao).exe
-	@echo -e "\n $@ gerado "
-
-
-doc: Doxyfile
-	doxygen Doxyfile
-	@echo -e "\n Documentacao de arquivos gerada "
-	@echo -e "\n Voce pode utilizar 'make teste' para testar o arquivo aplicacao"
-	@echo -e "\n Voce pode utilizar 'make webpage' para abrir a documentacao online"
-	@echo -e "\n Voce pode utilizar 'make clean' para deitar as pastas 'doc' e 'build'"
-
-
-.PHONY: webpage
-webpage: $(html)/index.html
-	@echo -e "\n Abrindo o documento de pagina web: index"
-	start "$(html)/index.html"
-
-
+teste:
+	./build/matrizes.out
+	./build/mimo.out
 clean:
-	rm -rf doc
-	rm -rf $(obj)
-	@echo -e "\n pastas 'build' e 'doc' deletadas"
+	rm -rf build/*
+	rm -rf doc/*
+	rmdir build
+	rmdir doc
+	rm -rf doc/html/*.css
+	rm -rf doc/html/*.html
+	rm -rf doc/html/*.png
+	rm -rf doc/html/*.svg
+	rm -rf doc/html/*.js
+	rm -rf doc/html/*.dot
+.PHONY:	doc
+doc:
+	doxygen
